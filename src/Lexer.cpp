@@ -31,7 +31,8 @@ Token Lexer::next() {
             return Token::NUM;
 
         default:
-            return END;
+            //Implicit exit instruction at the end
+            return EXT;
     }
 }
 

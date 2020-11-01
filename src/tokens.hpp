@@ -8,5 +8,4 @@ enum Token {
     EXT,
     ADDR,
     NUM,
-    END,
 };
