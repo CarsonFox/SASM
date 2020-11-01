@@ -4,6 +4,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 
-set(src main.cpp Lexer.cpp Lexer.hpp tokens.hpp)
+set(src src/main.cpp src/Lexer.cpp src/Lexer.hpp src/tokens.hpp)
 
 add_executable(SASM ${src})
