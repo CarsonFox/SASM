@@ -13,4 +13,5 @@ public:
     Lexer(): input(std::cin) {}
     Token next();
     void address();
+    bool eof() const;
 };

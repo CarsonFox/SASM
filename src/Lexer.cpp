@@ -4,6 +4,9 @@ Token Lexer::next() {
     //Skip whitespace
     input >> std::ws;
 
+    //Reset state
+    indirection = num = 0;
+
     switch (input.peek()) {
         case 'S':
             input.ignore(3);
@@ -43,4 +46,8 @@ void Lexer::address() {
         input.get();
     }
     input >> num;
+}
+
+bool Lexer::eof() const {
+    return input.eof();
 }

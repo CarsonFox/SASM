@@ -20,3 +20,7 @@ Instruction Parser::parse() {
             std::exit(1);
     }
 }
+
+bool Parser::eof() const {
+    return lexer.eof();
+}

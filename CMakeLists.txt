@@ -9,6 +9,6 @@ set(src src/main.cpp
         src/tokens.hpp
         src/instructions/Instruction.hpp
         src/instructions/Address.cpp src/instructions/Address.hpp
-        src/instructions/BinaryInstruction.cpp src/instructions/BinaryInstruction.hpp src/Parser.cpp src/Parser.hpp src/instructions/Instruction.cpp)
+        src/instructions/BinaryInstruction.cpp src/instructions/BinaryInstruction.hpp src/Parser.cpp src/Parser.hpp src/instructions/Instruction.cpp src/Interpreter.cpp src/Interpreter.hpp)
 
 add_executable(SASM ${src})

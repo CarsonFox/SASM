@@ -1,8 +1,7 @@
-#include <iostream>
-
-#include "Parser.hpp"
+#include "Interpreter.hpp"
 
 int main() {
-    Parser parser;
+    Interpreter interpreter;
+    interpreter.execute();
     return 0;
 }

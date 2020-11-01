@@ -4,9 +4,9 @@
 
 class Lexer;
 
-class BinaryInstruction {
+struct BinaryInstruction {
     Address A, B;
-public:
+
     explicit BinaryInstruction(Lexer &lexer);
 };
 

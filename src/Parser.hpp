@@ -7,4 +7,5 @@ class Parser {
     Lexer lexer;
 public:
     Instruction parse();
+    bool eof() const;
 };
