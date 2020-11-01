@@ -1,0 +1,7 @@
+cmake-build-debug/
+.idea/
+
+input
+sample.jpg
+solution.py
+spec.jpg
