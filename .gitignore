@@ -2,6 +2,7 @@ cmake-build-debug/
 .idea/
 
 input
+random-input
 sample.jpg
 solution.py
 spec.jpg
