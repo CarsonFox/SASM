@@ -1,5 +1,7 @@
 #include "Interpreter.hpp"
 
+#include <array>
+
 Interpreter::Interpreter() {
     memory.fill(0);
 
@@ -12,28 +14,36 @@ Interpreter::Interpreter() {
 
 void Interpreter::execute() {
     Instruction current;
-    for (;;) {
+
+    constexpr void* labels[] = {
+            [SET] = &&set_label,
+            [ADD] = &&add_label,
+            [JMP] = &&jump_label,
+            [OUT] = &&out_label,
+            [EXT] = &&exit_label,
+    };
+
+    auto const next = [&] {
         current = instructions[pc++];
-        switch (current.type) {
-            case SET:
-                set(current);
-                break;
-            case ADD:
-                add(current);
-                break;
-            case JMP:
-                jump(current);
-                break;
-            case OUT:
-                out(current);
-                break;
-            case EXT:
-                return;
-            default:
-                std::cerr << "Unsupported opcode" << std::endl;
-                std::exit(EXIT_FAILURE);
-        }
-    }
+        return labels[current.type];
+    };
+
+    goto* next();
+
+    set_label:
+        set(current);
+        goto* next();
+    add_label:
+        add(current);
+        goto* next();
+    jump_label:
+        jump(current);
+        goto* next();
+    out_label:
+        out(current);
+        goto* next();
+    exit_label:
+        return;
 }
 
 void Interpreter::set(Instruction &ins) {
