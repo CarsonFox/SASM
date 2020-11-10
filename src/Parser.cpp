@@ -17,7 +17,7 @@ Instruction Parser::parse() {
 
         default:
             std::cerr << "Syntax error" << std::endl;
-            std::exit(1);
+            std::exit(EXIT_FAILURE);
     }
 }
 

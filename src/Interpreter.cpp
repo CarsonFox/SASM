@@ -13,8 +13,7 @@ Interpreter::Interpreter() {
 void Interpreter::execute() {
     Instruction current;
     for (;;) {
-        current = instructions[pc];
-        pc++;
+        current = instructions[pc++];
         switch (current.type) {
             case SET:
                 set(current);
@@ -30,6 +29,9 @@ void Interpreter::execute() {
                 break;
             case EXT:
                 return;
+            default:
+                std::cerr << "Unsupported opcode" << std::endl;
+                std::exit(EXIT_FAILURE);
         }
     }
 }

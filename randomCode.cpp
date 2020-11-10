@@ -4,7 +4,7 @@
 std::random_device os_randomness;
 std::default_random_engine rng(os_randomness());
 std::bernoulli_distribution fifty_fifty(0.5);
-std::uniform_int_distribution<> addrDist(0, 128 - 1);
+std::uniform_int_distribution<> addrDist(1, 128 - 1);
 
 std::string literalOrAddress() {
     return std::string(fifty_fifty(rng) ? "&" : "") + std::to_string(addrDist(rng));
